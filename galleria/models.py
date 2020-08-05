@@ -16,7 +16,7 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
-# a dictionary of some categories
+# a turple of some categories
 # CATEGORIES = (
 #     ( '1 ' 'Animals'),
 #     ( '2 ' 'Sunsets'),
@@ -65,3 +65,19 @@ class Gallery(models.Model):
     # delete gallery
     def delete_gallery(self):
         self.delete()
+
+    
+    @classmethod
+    def gallery(cls):
+        gallery = cls.objects.filter()
+        return gallery
+    
+    # @classmethod
+    # def days_news(cls,date):
+    #     news = cls.objects.filter()
+    #     return news
+
+    @classmethod
+    def search_by_image_name(cls,search_term):
+      gallery = cls.objects.filter(image_name__icontains=search_term)
+      return gallery
