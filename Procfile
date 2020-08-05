@@ -1,0 +1,1 @@
+web: gunicorn fotomoto.wsgi --log-file -
