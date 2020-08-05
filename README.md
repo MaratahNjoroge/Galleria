@@ -5,7 +5,7 @@
 
 
 ## Description
-[This](https://maratah-gallery.herokuapp.com/) is a web application that hoists a photographers gallery.Users can also be able to click on an image,
+[This](https://fotomoto.herokuapp.com/) is a web application that hoists a photographers gallery.Users can also be able to click on an image,
 view the image descriptio, name, location and also copy the link for the image.
 ## User Stories
 * As a user I would like to view the different images.
