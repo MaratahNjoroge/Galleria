@@ -1,5 +1,50 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block content %}
 
-{% block content %}
-{{block.super}}
-{% endblock %}
+
+<div class="container" style="margin-top:60px;">
+ 
+  <div class="card ovf-hidden">
+        <!--Card image-->  
+        {% if gallery.image %}
+          <div class="view overlay">
+            <img src="{{gallery.image.url}}" class="img-responsive img-thumbnail center-block img-circle" alt="">
+            <a>
+              <div class="mask waves-effect waves-light rgba-white-slight"></div>
+            </a>
+          </div>
+        {% endif %}
+    <div class="card-reveal white">
+      <!--Content-->
+      <div class="content text-center">
+        <h4 class="card-title text-warning">Name: {{gallery.image_name}}<i class="fa fa-close"></i></h4>
+        <hr>
+        <h5 class="text-center text-info">Category: {{gallery.image}}</h5>
+        <hr>
+        <h5 class="text-center text-success">Description: {{gallery.image_description}}</h5>
+        <hr>
+        <h5 class="text-center text-danger">Location: {{gallery.location}}</h5>
+        <hr>
+      </div>
+      <div class="text-center">
+        <!-- The text field -->
+        <input type="text" value="" id="myInput">
+
+        <!-- The button used to copy the text -->
+        <button class="btn btn-warning" onclick="myFunction()">Copy Link </button>
+        <hr>
+      </div>
+      <!--/.Content-->
+    </div>
+
+    <!--/.Card reveal-->
+  </div>
+  <script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  document.execCommand("Copy");
+  alert("Copied the link: " + copyText.value);
+}
+</script>
+
+  {% endblock %}
