@@ -7,21 +7,31 @@ from .models import Gallery
 
 # Create your views here.
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'home.html')
 
-def about(request):
-    '''
-    function to display the about page and location 
-    '''
-    images = Gallery.filter_by_location()
-    return render(request, 'about.html', {"images": images})
+def about(request): 
+   
+    return render(request, 'galleria.html')
 
 def gallery(request):
-    gallery = Gallery.objects.all()    
-    
+    gallery = Gallery.objects.all()      
     return render(request, 'gallery.html',{"gallery": gallery})
         
-def image(request, image_id):
-    images = Gallery.objects.get(id=image_id)
+def search_results(request):
 
-    return render(request, 'image.html', {"images": images})
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Gallery.search_by_image_name(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"images": searched_images})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
+
+def image(request, image_id):
+   
+    image = Gallery.objects.get(id=image_id)
+     
+    return render(request, 'image.html', {"gallery": image})
