@@ -1,9 +1,39 @@
 {%extends 'base.html'%}
 
 {% block content %}
+{{block.super}}
 
-<div class="container-fluid">
+    <div class="container-fluid">
+      <!-- loop through gallery -->
+     
+      {% for galleria_item in gallery %}
+        <!-- Card -->
+              
+          <div class="uk-text-center">
+            <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                <img style="width:24%; height:250px;float: left;text-align: center;
+                " src="{{galleria_item.image.url}}" class="img-responsive img-thumbnail" alt="responsive-image">
+                 
+                 <div class="uk-position-center">
+                    <div class="uk-transition-slide-top-small"><h4 class="uk-margin-remove" style="color:red;">{{galleria_item.image_name}}</h4></div>
+                    <div class="uk-transition-slide-bottom-small"><h4 class="uk-margin-remove">{{galleria_item.category}}</h4></div>
+                </div>
+            </div>
+            <p class="uk-margin-small-top">{{galleria_item.location}}</p> 
+            <div class="card-text">
+            <a class="uk-margin-small-top bbtn-red" href="{% url 'image' galleria_item.id %}">More Details</a> 
+            </div>
 
-</div>
 
-{% endblock %}
+
+        <!-- Card -->
+        {% empty %}
+      <div class="row">
+        <h2 class="text-center">There is no image under that name</h2>
+      </div>
+     {% endfor %}
+    
+   </div> 
+
+   
+{% endblock %} 
