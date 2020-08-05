@@ -20,56 +20,47 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                    <!-- <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li> -->
-             
-                <form class="form-inline my-2 my-lg-6 ml-auto">
-                  <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <ul class="navbar-nav mr-auto">                  
+                <form class="form-inline my-2 my-lg-6 ml-auto" role="search" action="{% url 'search_results' %}">
+                  <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="image">
                     <!-- <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button> -->                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">Galleria
-                    </a>
-                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>  
-            </form>     
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Galleria
+                        </a>
+                        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>  
+             </form>     
            </ul>
-           <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="https://twitter.com/">
-                         <i class="fab fa-twitter" ></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="https://www.instagram.com/">
-                       <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="https://github.com/">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="https://www.linkedin.com/">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </li>
-          </ul>
         </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home </a>                 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li> -->
+            </ul>
+        </div>
+       
     </nav>
        
 
-
+    
       <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
